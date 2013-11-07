@@ -13,12 +13,12 @@ end
 #   on the same page
 
 Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
-	step "I am on #{path}"
+	#code provided from chapter 7.9 of SaaSbook
 	regexp = /#{e1}.*#{e2}/m
-	page.body.should =~regexp
+  page.body.should =~ regexp
   #  ensure that that e1 occurs before e2.
   #  page.body is the entire content of the page as a string.
-  flunk "Unimplemented"
+  #flunk "Unimplemented"
 end
 
 # Make it easier to express checking or unchecking several boxes at once
@@ -38,6 +38,7 @@ When /I (un)?check the following ratings: (.*)/ do |uncheck, rating_list|
   #   "When I uncheck..." steps in lines 89-95 of web_steps.rb
 end
 
+# Because redudant code is dumb
 Then /I should( not)? see the following: (.*)/ do |n, movie_list|
 	movie_list.split(%r{,\s*}).each do |movies|
 		if(n)
